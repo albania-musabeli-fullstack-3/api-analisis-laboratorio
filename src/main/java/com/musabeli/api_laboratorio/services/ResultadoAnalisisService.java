@@ -10,4 +10,5 @@ public interface ResultadoAnalisisService {
 
     ResponseResultadoDto createResultadoAnalisis(CreateResultadoDto resultadoDto);
     List<ResponseResultadoDto> getResultadosAnalisis();
+    ResponseResultadoDto getResultadoAnalisisById(Long id);
 }

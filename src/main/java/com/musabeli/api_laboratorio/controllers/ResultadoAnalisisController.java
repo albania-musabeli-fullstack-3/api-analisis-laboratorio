@@ -32,4 +32,10 @@ public class ResultadoAnalisisController {
 
         return ResponseEntity.status(HttpStatus.OK).body(resultados);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ResponseResultadoDto> getResultadoById(@PathVariable Long id){
+        ResponseResultadoDto resultado = this.resultadoService.getResultadoAnalisisById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(resultado);
+    }
 }

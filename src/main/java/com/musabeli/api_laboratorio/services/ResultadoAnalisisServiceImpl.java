@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,6 +23,18 @@ public class ResultadoAnalisisServiceImpl implements ResultadoAnalisisService {
 
     @Autowired
     private LaboratorioRepository laboratorioRepository;
+
+
+    private ResultadoAnalisis findResultadoById(Long id){
+        Optional<ResultadoAnalisis> resultado = this.resultadoRepository.findById(id);
+
+        if (resultado.isPresent()){
+            return resultado.get();
+        }
+        else {
+            throw new ResourceNotFoundException("No existen registro de análisis con id " + id);
+        }
+    }
 
 
     @Override
@@ -47,5 +60,13 @@ public class ResultadoAnalisisServiceImpl implements ResultadoAnalisisService {
                 .map(ResultadoMapper::toResponseResultadoDto)
                 .collect(Collectors.toList());
 
+    }
+
+    @Override
+    public ResponseResultadoDto getResultadoAnalisisById(Long id) {
+        // buscar resultado
+        ResultadoAnalisis resultado = this.findResultadoById(id);
+
+        return ResultadoMapper.toResponseResultadoDto(resultado);
     }
 }
