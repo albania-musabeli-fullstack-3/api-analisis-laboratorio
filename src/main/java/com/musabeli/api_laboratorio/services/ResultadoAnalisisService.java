@@ -3,9 +3,11 @@ package com.musabeli.api_laboratorio.services;
 
 import com.musabeli.api_laboratorio.dtos.CreateResultadoDto;
 import com.musabeli.api_laboratorio.dtos.ResponseResultadoDto;
-import com.musabeli.api_laboratorio.entities.ResultadoAnalisis;
+
+import java.util.List;
 
 public interface ResultadoAnalisisService {
 
     ResponseResultadoDto createResultadoAnalisis(CreateResultadoDto resultadoDto);
+    List<ResponseResultadoDto> getResultadosAnalisis();
 }

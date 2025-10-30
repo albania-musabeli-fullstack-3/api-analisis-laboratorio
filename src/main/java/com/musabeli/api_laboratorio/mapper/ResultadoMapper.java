@@ -11,6 +11,7 @@ public class ResultadoMapper {
     public static ResultadoAnalisis fromCreateResultado(CreateResultadoDto dto, Laboratorio laboratorio){
         return ResultadoAnalisis.builder()
                 .fechaAnalisis(dto.getFechaAnalisis())
+                .nombreAnalisis(dto.getNombreAnalisis())
                 .resultado(dto.getResultado())
                 .observaciones(dto.getObservaciones())
                 .laboratorio(laboratorio)
@@ -32,6 +33,7 @@ public class ResultadoMapper {
         return new ResponseResultadoDto(
                 entidad.getId(),
                 entidad.getFechaAnalisis(),
+                entidad.getNombreAnalisis(),
                 entidad.getResultado(),
                 entidad.getObservaciones(),
                 labDto

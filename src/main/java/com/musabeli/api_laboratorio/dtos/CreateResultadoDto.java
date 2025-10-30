@@ -1,10 +1,5 @@
 package com.musabeli.api_laboratorio.dtos;
 
-import com.musabeli.api_laboratorio.entities.Laboratorio;
-import jakarta.persistence.Column;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -18,6 +13,9 @@ public class CreateResultadoDto {
 
     @NotNull(message = "La fecha de análisis no puede ser nula")
     private LocalDateTime fechaAnalisis;
+
+    @NotBlank(message = "El nombre del análisis es obligatorio")
+    private String nombreAnalisis;
 
     @NotBlank(message = "El campo resultado es obligatorio")
     private String resultado;

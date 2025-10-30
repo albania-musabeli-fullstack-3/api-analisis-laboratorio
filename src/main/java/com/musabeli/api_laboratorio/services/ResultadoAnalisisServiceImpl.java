@@ -11,6 +11,9 @@ import com.musabeli.api_laboratorio.repositories.ResultadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ResultadoAnalisisServiceImpl implements ResultadoAnalisisService {
 
@@ -35,5 +38,14 @@ public class ResultadoAnalisisServiceImpl implements ResultadoAnalisisService {
         ResultadoAnalisis resultadoBd = this.resultadoRepository.save(resultado);
 
         return ResultadoMapper.toResponseResultadoDto(resultadoBd);
+    }
+
+    @Override
+    public List<ResponseResultadoDto> getResultadosAnalisis() {
+        // transformar entidad a dto usando mapper
+        return resultadoRepository.findAll().stream()
+                .map(ResultadoMapper::toResponseResultadoDto)
+                .collect(Collectors.toList());
+
     }
 }

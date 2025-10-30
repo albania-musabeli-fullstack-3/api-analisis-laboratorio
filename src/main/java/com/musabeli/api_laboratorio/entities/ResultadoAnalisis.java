@@ -23,6 +23,9 @@ public class ResultadoAnalisis {
     private LocalDateTime fechaAnalisis;
 
     @Column(nullable = false)
+    private String nombreAnalisis;
+
+    @Column(nullable = false)
     private String resultado;
 
     @Column(nullable = false)
