@@ -2,6 +2,7 @@ package com.musabeli.api_laboratorio.services;
 
 import com.musabeli.api_laboratorio.dtos.CreateResultadoDto;
 import com.musabeli.api_laboratorio.dtos.ResponseResultadoDto;
+import com.musabeli.api_laboratorio.dtos.UpdateResultadoDto;
 import com.musabeli.api_laboratorio.entities.Laboratorio;
 import com.musabeli.api_laboratorio.entities.ResultadoAnalisis;
 import com.musabeli.api_laboratorio.exceptions.ResourceNotFoundException;
@@ -68,5 +69,35 @@ public class ResultadoAnalisisServiceImpl implements ResultadoAnalisisService {
         ResultadoAnalisis resultado = this.findResultadoById(id);
 
         return ResultadoMapper.toResponseResultadoDto(resultado);
+    }
+
+    @Override
+    public ResponseResultadoDto updateResultadoAnalisis(Long id, UpdateResultadoDto resultadoDto) {
+        ResultadoAnalisis resultado = resultadoRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Resultado con id " + id + "no encontrado"));
+
+        if (resultadoDto.getFechaAnalisis() != null){
+            resultado.setFechaAnalisis(resultadoDto.getFechaAnalisis());
+        }
+        if (resultadoDto.getNombreAnalisis() != null){
+            resultado.setNombreAnalisis(resultadoDto.getNombreAnalisis());
+        }
+        if (resultadoDto.getResultado() != null){
+            resultado.setResultado(resultadoDto.getResultado());
+        }
+        if (resultadoDto.getObservaciones() != null){
+            resultado.setObservaciones(resultadoDto.getObservaciones());
+        }
+        if (resultadoDto.getIdLaboratorio() != null){
+            // encontrar un laboratorio
+            Laboratorio laboratorio = laboratorioRepository.findById(resultadoDto.getIdLaboratorio())
+                    .orElseThrow(() -> new ResourceNotFoundException("Laboratorio con id " + resultadoDto.getIdLaboratorio() + " no encontrado"));
+
+            resultado.setLaboratorio(laboratorio);
+        }
+
+        // guardar en bd
+        ResultadoAnalisis resultadoActualizado = resultadoRepository.save(resultado);
+        return ResultadoMapper.toResponseResultadoDto(resultadoActualizado);
     }
 }

@@ -2,6 +2,7 @@ package com.musabeli.api_laboratorio.controllers;
 
 import com.musabeli.api_laboratorio.dtos.CreateResultadoDto;
 import com.musabeli.api_laboratorio.dtos.ResponseResultadoDto;
+import com.musabeli.api_laboratorio.dtos.UpdateResultadoDto;
 import com.musabeli.api_laboratorio.entities.ResultadoAnalisis;
 import com.musabeli.api_laboratorio.services.ResultadoAnalisisService;
 import jakarta.validation.Valid;
@@ -38,4 +39,11 @@ public class ResultadoAnalisisController {
         ResponseResultadoDto resultado = this.resultadoService.getResultadoAnalisisById(id);
         return ResponseEntity.status(HttpStatus.OK).body(resultado);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ResponseResultadoDto> updateResultado(@PathVariable Long id, @Valid @RequestBody UpdateResultadoDto dto){
+        ResponseResultadoDto resultadoActualizado = this.resultadoService.updateResultadoAnalisis(id, dto);
+        return ResponseEntity.status(HttpStatus.OK).body(resultadoActualizado);
+    }
+
 }
