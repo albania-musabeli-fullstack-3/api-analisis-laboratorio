@@ -98,6 +98,16 @@ public class ResultadoAnalisisServiceImpl implements ResultadoAnalisisService {
 
         // guardar en bd
         ResultadoAnalisis resultadoActualizado = resultadoRepository.save(resultado);
+
+        // debe devolver un dto
         return ResultadoMapper.toResponseResultadoDto(resultadoActualizado);
+    }
+
+    @Override
+    public ResponseResultadoDto deleteResultadoAnalisis(Long id) {
+        ResultadoAnalisis deleteResultado = this.findResultadoById(id);
+
+        this.resultadoRepository.deleteById(id);
+        return ResultadoMapper.toResponseResultadoDto(deleteResultado);
     }
 }

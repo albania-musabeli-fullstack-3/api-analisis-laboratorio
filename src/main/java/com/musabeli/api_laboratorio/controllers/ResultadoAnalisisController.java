@@ -46,4 +46,10 @@ public class ResultadoAnalisisController {
         return ResponseEntity.status(HttpStatus.OK).body(resultadoActualizado);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ResponseResultadoDto> deleteResultado(@PathVariable Long id){
+        ResponseResultadoDto resultado = this.resultadoService.deleteResultadoAnalisis(id);
+        return ResponseEntity.status(HttpStatus.OK).body(resultado);
+    }
+
 }

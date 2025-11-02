@@ -13,4 +13,5 @@ public interface ResultadoAnalisisService {
     List<ResponseResultadoDto> getResultadosAnalisis();
     ResponseResultadoDto getResultadoAnalisisById(Long id);
     ResponseResultadoDto updateResultadoAnalisis(Long id, UpdateResultadoDto resultadoDto);
+    ResponseResultadoDto deleteResultadoAnalisis(Long id);
 }
