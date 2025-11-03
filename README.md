@@ -40,7 +40,7 @@ ORACLE_PASSWORD=pass123
 API_PORT=8081
 ```
 
-* Se agrega archivo `data.sql` con datos iniciales de Laboratorio. 
+## Se agrega archivo `data.sql` para carga inicial de datos. 
 
 ## Ejemplo de request body - Resultado
 
