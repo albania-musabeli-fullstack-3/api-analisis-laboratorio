@@ -5,13 +5,13 @@ Api desarrollada en Springboot para la gestión de resultados de laboratorio.
 
 ## Dependencias
 
-|Initializr             |Maven                          |
-|-----------------------|-------------------------------|
-|Spring Web             |Oracle Driver (ojdbc 11)       |
-|Springboot Devtools    |Oracle pki                     |
-|Lombok                 |osdt core                      |
-|Oracle Driver          |osdt cert                      |
-|Spring Data JPA        |Springboot starter validation  |
+| Initializr          | Maven                         |
+|---------------------|-------------------------------|
+| Spring Web          | Oracle Driver (ojdbc 11)      |
+| Springboot Devtools | Oracle pki                    |
+| Lombok              | osdt core                     |
+| Oracle Driver       | osdt cert                     |
+| Spring Data JPA     | Springboot starter validation |
 
 
 ## Endpoints para ambiente Desarrollo
@@ -40,6 +40,7 @@ ORACLE_PASSWORD=pass123
 API_PORT=8081
 ```
 
+Se agrega archivo `data.sql` 
 
 ## Ejemplo de request body - Resultado
 
