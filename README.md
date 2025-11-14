@@ -58,3 +58,36 @@ src/main/resources/data.sql
   "idLaboratorio": 2
 }
 ```
+
+## Arquetipo Springboot
+
+Plantilla para generar APIs REST para gestión de resultados de laboratorio.
+
+
+### Estructura del Repositorio
+
+api-analisis-laboratorio/
+├── master/                 ← Código fuente original (sin target/)
+└── archetype/              ← Arquetipo completo (con target/generated-sources/archetype/)
+
+
+### Instalar el arquetipo
+
+```bash
+./mvnw clean install
+```
+
+### Generar un nuevo proyecto
+
+```bash
+./mvnw archetype:generate \
+  -DgroupId=com.empresa \
+  -DartifactId=nueva-api \
+  -Dversion=1.0.0 \
+  -DarchetypeGroupId=com.musabeli \
+  -DarchetypeArtifactId=api-laboratorio-archetype \
+  -DarchetypeVersion=1.0.0 \
+  -Dpackage=com.empresa.nuevaapi \
+  -DinteractiveMode=false
+```
+
