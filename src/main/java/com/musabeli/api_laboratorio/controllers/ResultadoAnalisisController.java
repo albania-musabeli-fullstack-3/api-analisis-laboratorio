@@ -3,7 +3,6 @@ package com.musabeli.api_laboratorio.controllers;
 import com.musabeli.api_laboratorio.dtos.CreateResultadoDto;
 import com.musabeli.api_laboratorio.dtos.ResponseResultadoDto;
 import com.musabeli.api_laboratorio.dtos.UpdateResultadoDto;
-import com.musabeli.api_laboratorio.entities.ResultadoAnalisis;
 import com.musabeli.api_laboratorio.services.ResultadoAnalisisService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
