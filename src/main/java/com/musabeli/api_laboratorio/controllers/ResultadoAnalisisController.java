@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/resultado")
+@CrossOrigin(originPatterns = "*", methods = {RequestMethod.POST, RequestMethod.OPTIONS})
 public class ResultadoAnalisisController {
 
     @Autowired

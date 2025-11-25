@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/laboratorio")
+@CrossOrigin(originPatterns = "*", methods = {RequestMethod.POST, RequestMethod.OPTIONS})
 public class LaboratorioController {
 
     @Autowired
