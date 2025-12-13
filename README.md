@@ -14,7 +14,7 @@ Api desarrollada en Springboot para la gestión de resultados de laboratorio.
 | Spring Data JPA     | Springboot starter validation |
 
 
-## Endpoints para ambiente Desarrollo
+## Endpoints para ambiente Desarrollo: Resultados de análisis
 
 * **POST**: Crear un resultado: http://localhost:8081/api/resultado
 
@@ -26,6 +26,17 @@ Api desarrollada en Springboot para la gestión de resultados de laboratorio.
 
 * **DELETE**: Eliminar un resultado: http://localhost:8081/api/resultado/{id}
 
+## Endpoints para ambiente Desarrollo: Laboratorio
+
+* **POST**: Crear un laboratorio: http://localhost:8081/api/laboratorio
+
+* **GET**: Listar los laboratorios: http://localhost:8081/api/laboratorio
+
+* **GET**: Obtener laboratorio por id: http://localhost:8081/api/laboratorio/{id}
+
+* **PUT**: Actualizar un laboratorio: http://localhost:8081/api/laboratorio/{id}
+
+* **DELETE**: Eliminar un laboratorio: http://localhost:8081/api/laboratorio/{id}
 
 ## Instrucciones para ejecutar en local
 
